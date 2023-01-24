@@ -4,45 +4,107 @@
     padding: 0;
 }
 
+:root {
+    --primary-color: #FFFBEB;
+    --secondary-color: #495579;
+    --dark-theme: #251749;
+}
+
+/*dark theme*/
+
+.label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: var(--secondary-color);
+    border-radius: 50px;
+    cursor: pointer;
+    height: 26px;
+    padding: 5px;
+    position: relative;
+    transform: scale(1.5);
+    width: 50px; 
+}
+
+.label .ball {
+    background: #fff;
+    border-radius: 50%;
+    height: 22px;
+    left: 2px;
+    position: absolute;
+    top: 2px;
+    transform: translateX(0px);
+    transition: transform 0.2s linear;
+    width: 22px; 
+}
+
+.checkbox:checked + .label .ball{
+    transform: translateX(24px);
+}
+
+.bi-moon {
+    color: var(--primary-color);
+    margin-bottom: 5px;
+}
+
+.bi-brightness-high {
+    color: var(--primary-color);
+    margin-bottom: 5px;
+}
+
+.checkbox {
+    opacity: 0;
+    position: absolute;
+}
+
+body.dark {
+    background: var(--dark-theme);
+}
+
+/*----------*/
+
 body {
     display: flex;
     align-items: center;
-    justify-content: center;
     flex-direction: column;
-
+    justify-content: center;
+   
+    background-color: var(--primary-color); 
     height: 100vh;
-    font-family: cursive;
-    background-color: darkgray; 
+    font-family: cursive; 
+    overflow: hidden;
 }
 
 h2 {
-    color: white;
-    text-transform: uppercase;
+    color: var(--secondary-color);
     letter-spacing: 4px;
+    text-align: center;
+    text-transform: uppercase;
 }
 
 .countdown {
-    margin: 30px;
-    background-color: rgba(0,0,0,0.1);
-    width: 100%;
-    color: white;
-    height: 120px;
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+
+    background-color: rgba(0,0,0,0.1);
+    color: var(--secondary-color);
+    height: 120px;
+    margin: 30px; 
+    width: 100%;   
 }
 
 .year {
-    font-size
-    : 5em;
-    color: white;
+    color: var(--secondary-color);
+    font-size: 5em;
     font-weight: bold;
 }
 
 .countdown div {
-    margin: 0 15px;
     font-size: 2.5em;
     font-weight: 500;
+    margin: 0 15px;
     margin-top: -25px;
     position: relative;
     text-align: center;
@@ -50,18 +112,17 @@ h2 {
 }
 
 .countdown div::before {
-    content: " ";
-    position: absolute;
     bottom: -30px;
-    left: 0;
+    content: " ";
     font-size: .35em;
-    line-height: 35px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
     font-weight: 500;
-    width: 100%;
     height: 35px;
-
+    left: 0;
+    letter-spacing: 1px;
+    line-height: 35px;
+    position: absolute; 
+    text-transform: uppercase; 
+    width: 100%;  
 }
 
 .countdown #day::before {
